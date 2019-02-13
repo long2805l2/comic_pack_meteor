@@ -19,8 +19,8 @@ export default class Header extends React.Component {
       <div className="header">
         <ul className="breadcrumb">
           <li><a href="#">Comic Pack</a></li>
-          <li><a href="#">Hourou Musuko</a></li>
-          <li><a href="#">Chapter 1</a></li>
+          <li><a href="./">Hourou Musuko</a></li>
+          <li><a href="./about">Chapter 1</a></li>
         </ul>
         <div className="search-container">
           <form action="">

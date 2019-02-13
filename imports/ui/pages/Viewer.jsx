@@ -10,40 +10,37 @@ export default class Viewer extends React.Component
 
 	componentDidMount()
 	{
-		window.addEventListener('load', () =>
+		let comic_name = "Hourou Musuko";
+		let comic_chapter = 1;
+		Meteor.call('comics.load', comic_name, comic_chapter,
+		(error, result) =>
 		{
-			let comic_name = "Hourou Musuko";
-			let comic_chapter = 1;
-			Meteor.call('comics.load', comic_name, comic_chapter,
-			(error, result) =>
+			if (error)
 			{
-				// ReactDOM.findDOMNode(this.refs.comic_name).value.trim();
-				if (error)
-				{
-					console.log ("error", error);
-					return;
-				}
-				
-				// console.log ("result", result);
-				if (!result)
-					return;
-				
-				this.listElements = document.getElementById("gallery");
+				console.log ("error", error);
+				return;
+			}
+			
+			if (!result)
+				return;
+			
+			this.listElements = document.getElementById("gallery");
 
-				for (let i in result)
-				{
-					let url = result [i];
-					let li = document.createElement ("li");
-					let img = document.createElement ("img");
-					img.src = url;
+			for (let i in result)
+			{
+				let url = result [i];
+				let li = document.createElement ("li");
+				let img = document.createElement ("img");
+				img.src = url;
 
-					console.log ("item", i, li);
-
-					li.appendChild (img);
-					this.listElements.appendChild (li);
-				}
-			})
+				li.appendChild (img);
+				this.listElements.appendChild (li);
+			}
 		});
+	}
+
+	componentWillUnmount()
+	{
 	}
 	
 	render() {

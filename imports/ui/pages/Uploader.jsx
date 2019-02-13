@@ -10,23 +10,20 @@ export default class Uploader extends React.Component
 
 	componentDidMount()
 	{
-		window.addEventListener('load', () =>
-		{
-			this.listFiles = [];
-			this.listElements = document.createElement('ol');
-			
-			let previewElement = document.getElementById('image_preview');
-			previewElement.appendChild(this.listElements);
+		this.listFiles = [];
+		this.listElements = document.createElement('ol');
+		
+		let previewElement = document.getElementById('image_preview');
+		previewElement.appendChild(this.listElements);
 
-			this.inputElement = document.getElementById('image_uploads');
-			this.inputElement.addEventListener('change', this.updateImageDisplay.bind(this), false);
+		this.inputElement = document.getElementById('image_uploads');
+		this.inputElement.addEventListener('change', this.updateImageDisplay.bind(this), false);
 
-			this.uploader = document.getElementById('uploader');
-			this.uploader.addEventListener('dragenter', this.handleDragEnter.bind(this), false);
-			this.uploader.addEventListener('dragleave', this.handleDragLeave.bind(this), false);
-			this.uploader.addEventListener('dragover', this.handleDragOver.bind(this), false);
-			this.uploader.addEventListener('drop', this.handleFileSelect.bind(this), false);
-		});
+		this.uploader = document.getElementById('uploader');
+		this.uploader.addEventListener('dragenter', this.handleDragEnter.bind(this), false);
+		this.uploader.addEventListener('dragleave', this.handleDragLeave.bind(this), false);
+		this.uploader.addEventListener('dragover', this.handleDragOver.bind(this), false);
+		this.uploader.addEventListener('drop', this.handleFileSelect.bind(this), false);
 	}
 	
 	handleDragEnter (e)
@@ -34,8 +31,6 @@ export default class Uploader extends React.Component
 		e.stopPropagation();
 		e.preventDefault();
 		this.uploader.classList.add('dragover');
-
-		// console.log ("handleDragEnter", e);
 	}
 	
 	handleDragLeave (e)
@@ -43,8 +38,6 @@ export default class Uploader extends React.Component
 		e.stopPropagation();
 		e.preventDefault();
 		this.uploader.classList.remove('dragover');
-		
-		// console.log ("handleDragLeave", e);
 	}
 	
 	handleDragOver (e)
@@ -52,8 +45,6 @@ export default class Uploader extends React.Component
 		e.stopPropagation();
 		e.preventDefault();
 		e.dataTransfer.dropEffect = 'copy';
-
-		// console.log ("handleDragOver", e);
 	}
 	
 	handleFileSelect (e)
