@@ -125,7 +125,53 @@ ul.breadcrumb li a:hover {
   
   /* Change the background color of the dropdown button when the dropdown content is shown */
   .dropdown:hover .dropbtn {
-  }
+	}
+	
+.home {
+
+}
+
+.home .comics
+{
+	margin: 10px;
+	list-style: none;
+}
+
+.home .comics li
+{
+	display: inline-block;
+	width: 200px;
+	margin: 10px;
+}
+
+.home .comics li img
+{
+	width: 100%;
+}
+
+.home .comics li a
+{
+	display: inline-block;
+	width: 100%;
+	text-align: center;
+}
+
+.home .pages
+{
+	list-style: none;
+	width: 100%;
+	text-align: center;
+}
+
+.home .pages li
+{
+	display: inline-block;
+	margin: 10px;
+}
+
+.home .pages li a
+{
+}
 
 .viewer
 {
@@ -156,25 +202,25 @@ ul.breadcrumb li a:hover {
 }
 
 .uploader {
+}
+
+.form{
 	margin: 20px;
 }
 
-.uploader .form{
-}
-
-.uploader .form .property{
+.form .property{
 	display: grid;
 	grid-template-columns: 8em auto;
 	margin-bottom: 5px;
 }
 
-.uploader .form .property label{
+.form .property label{
 	grid-column: 1;
 	color: #C0C0C0;
 	line-height: 25px;
 }
 
-.uploader .form .property input{
+.form .property input{
 	grid-column: 2;
 	background-color: #333333;
 	border: none;
@@ -183,7 +229,7 @@ ul.breadcrumb li a:hover {
 	padding: 5px;
 }
 
-.uploader .form .submit
+.form .submit
 {	
 	width: 100%;
 	padding: 20px;
@@ -196,7 +242,7 @@ ul.breadcrumb li a:hover {
 	border: none;
 }
 
-.uploader .form .submit:hover
+.form .submit:hover
 {
 	background-color: #555555;
 	color: white;
