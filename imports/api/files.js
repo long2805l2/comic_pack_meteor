@@ -12,6 +12,26 @@ export const Files = new Mongo.Collection('files');
 // }
 
 const core = {
+	async 'comics.add' (comic)
+	{
+		let comic_file_id = comic.name;
+		let comic_file = core ["files.get"] (comic_file_id);
+		if (!comic_file)
+		{
+			comic_file = {
+				chapters: {}
+			};
+		}
+		
+		comic_file.author = comic.author;
+		comic_file.genres = comic.genres;
+		comic_file.tags = comic.tags;
+		comic_file.introduction = comic.introduction;
+
+		core ["files.set"] (comic_file_id, comic_file);
+		console.log ("comics.add", "completed");
+	},
+
 	async 'comics.save' (name, chapter, images)
 	{
 		// console.log ("comics.save", name, chapter, images);
@@ -20,11 +40,7 @@ const core = {
 		let comic_file = core ["files.get"] (comic_file_id);
 		if (!comic_file)
 		{
-			comic_file = {
-				chapters: {}
-			};
-			
-			// console.log ("comics.save", "create comic_file");
+			console.log ("comics.save", "error", "cannot found " + name);
 		}
 
 		let chapter_file_id = comic_file.chapters [chapter];

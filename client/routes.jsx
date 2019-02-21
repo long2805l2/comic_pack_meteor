@@ -15,13 +15,23 @@ FlowRouter.route('/', {
 			content: <Home />
 		})
 	}
-})
+});
 
-FlowRouter.route('/about', {
+FlowRouter.route('/comic/add', {
+	name: 'Viewer',
+	action(){
+		mount( App, {
+			content: <ComicAdd />
+		})
+	}
+});
+
+
+FlowRouter.route('/comic', {
 	name: 'Viewer',
 	action(){
 		mount( App, {
 			content: <Viewer />
 		})
 	}
-})
+});

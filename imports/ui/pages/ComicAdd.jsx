@@ -14,6 +14,15 @@ export default class ComicAdd extends React.Component
 	
 	onSubmit (e)
 	{
+		const comic = {
+			name: ReactDOM.findDOMNode(this.refs.comic_name).value.trim(),
+			author: ReactDOM.findDOMNode(this.refs.comic_author).value.trim(),
+			genres: ReactDOM.findDOMNode(this.refs.comic_genres).value.trim(),
+			tags: ReactDOM.findDOMNode(this.refs.comic_tags).value.trim(),
+			introduction: ReactDOM.findDOMNode(this.refs.comic_introduction).value.trim()
+		};
+
+		Meteor.call('comics.add', comic);
 	}
 	
 	render()
@@ -26,8 +35,20 @@ export default class ComicAdd extends React.Component
 						<input type="text" id="comic_name" ref="comic_name" placeholder="type comic name"/>
 					</div>
 					<div className="property">
-						<label htmlFor="comic_chapter">Chapter</label>
-						<input type="number" id="comic_chapter" ref="comic_chapter" placeholder="1"/>
+						<label htmlFor="comic_author">Author</label>
+						<input type="text" id="comic_author" ref="comic_author" placeholder="who draw this"/>
+					</div>
+					<div className="property">
+						<label htmlFor="comic_genres">Genres</label>
+						<input type="text" id="comic_genres" ref="comic_genres" placeholder=""/>
+					</div>
+					<div className="property">
+						<label htmlFor="comic_tags">Tags</label>
+						<input type="text" id="comic_tags" ref="comic_tags" placeholder=""/>
+					</div>
+					<div className="property">
+						<label htmlFor="comic_introduction">Introduction</label>
+						<textarea id="comic_introduction" ref="comic_introduction" placeholder="" rows="4"></textarea>
 					</div>
 					<div type="submit" className="submit" onClick={this.onSubmit.bind(this)}>Submit</div>
 				</form>

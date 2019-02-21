@@ -84,7 +84,6 @@ ul.breadcrumb li a:hover {
 	background: #ccc;
 }
 
-
 .dropbtn {
 	color: #C0C0C0;
 	padding: 16px;
@@ -166,11 +165,19 @@ ul.breadcrumb li a:hover {
 .home .pages li
 {
 	display: inline-block;
-	margin: 10px;
 }
 
 .home .pages li a
 {
+	padding: 10px;
+	border-radius: 5px;
+	color: #C0C0C0;
+}
+
+.home .pages li a:hover
+{
+	background-color: #444444;
+	color: white;
 }
 
 .viewer
@@ -220,7 +227,8 @@ ul.breadcrumb li a:hover {
 	line-height: 25px;
 }
 
-.form .property input{
+.form .property input,
+.form .property textarea{
 	grid-column: 2;
 	background-color: #333333;
 	border: none;
