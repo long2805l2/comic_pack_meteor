@@ -1,0 +1,99 @@
+.form
+{
+	margin: 20px;
+
+	.property
+	{
+		display: grid;
+		grid-template-columns: 8em auto;
+		margin-bottom: 5px;
+
+		label
+		{
+			grid-column: 1;
+			color: #C0C0C0;
+			line-height: 25px;
+		}
+
+		input, textarea
+		{
+			grid-column: 2;
+			background-color: #333333;
+			border: none;
+			border-bottom: solid 1px #555555;
+			color: white;
+			padding: 5px;
+		}
+	}
+
+	.submit
+	{	
+		width: 100%;
+		padding: 20px;
+		margin-top: 20px;
+		font-size: 40px;
+		font-weight: bold;
+		text-align: center;
+		background-color: #444444;
+		color: #E0E0E0;
+		border: none;
+	}
+	
+	.submit:hover
+	{
+		background-color: #555555;
+		color: white;
+	}
+}
+
+.uploader
+{
+	.box
+	{
+		position: relative;
+		border-color: #555555;
+		border-style: dashed;
+		border-width: 1px;
+	
+		input {
+			display: none;
+		}
+		
+		label {
+			padding: 100px 20px;
+			font-size: 1.25rem;
+			text-align: center;
+			display: inherit;
+			color: #E0E0E0;
+		}
+	}
+	
+	.preview
+	{
+		margin-top: 20px;
+	
+		ol
+		{
+			list-style: none;
+			display: grid;
+			grid-template-columns: repeat(auto-fill, minmax(6.25em, 1fr));
+			grid-gap: 0.25em;
+	
+			li
+			{
+				grid-column: span 1;
+				text-align: center;
+	
+				img {
+					width: 6em;
+					order: 1;
+				}
+	
+				span {
+					text-align: center;
+					color: #E0E0E0;
+				}
+			}
+		}
+	}
+}

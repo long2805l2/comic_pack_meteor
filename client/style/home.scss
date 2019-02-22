@@ -1,0 +1,53 @@
+
+.home
+{
+	.comics
+	{
+		margin: 10px;
+		list-style: none;
+		
+		li
+		{
+			display: inline-block;
+			width: 200px;
+			margin: 10px;
+		
+			img
+			{
+				width: 100%;
+			}
+			
+			a
+			{
+				display: inline-block;
+				width: 100%;
+				text-align: center;
+			}
+		}
+	}
+
+	.pages
+	{
+		list-style: none;
+		width: 100%;
+		text-align: center;
+		
+		li
+		{
+			display: inline-block;
+		
+			a
+			{
+				padding: 10px;
+				border-radius: 5px;
+				color: #C0C0C0;
+			}
+			
+			a:hover
+			{
+				background-color: #444444;
+				color: white;
+			}
+		}
+	}
+}

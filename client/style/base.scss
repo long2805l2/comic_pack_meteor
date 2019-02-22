@@ -1,0 +1,22 @@
+*, *:before, *:after {
+	box-sizing: border-box;
+	padding: 0px;
+	margin: 0px;
+	color: white;
+}
+
+html,
+body {
+	height:100%;
+	background-color:#333333;
+	font-family: Verdana, Geneva, sans-serif;
+	font-family: "Gotham Rounded A", "Gotham Rounded B", "Helvetica Neue", Helvetica, Arial, sans-serif, "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
+}
+
+a {
+	text-decoration: none;
+}
+
+input, button {
+	color: black;
+}
