@@ -17,11 +17,16 @@ export default class Home extends React.Component
 		return (
 			<div className="home">
 				<ul className="comics">
-					<li><a href="./comic/add"><img src=""></img>add comic</a></li>
+					<li><a className="add_comic" href="./comic/add">add comic</a></li>
 					<li><a href="#"><img src="/001.jpg"></img>comic 1</a></li>
 					<li><a href="#"><img src="/001.jpg"></img>comic 2</a></li>
 					<li><a href="#"><img src="/001.jpg"></img>comic 3</a></li>
 					<li><a href="#"><img src="/001.jpg"></img>comic 4</a></li>
+					<li><a href="#"><img src="/001.jpg"></img>comic 5</a></li>
+					<li><a href="#"><img src="/001.jpg"></img>comic 6</a></li>
+					<li><a href="#"><img src="/001.jpg"></img>comic 7</a></li>
+					<li><a href="#"><img src="/001.jpg"></img>comic 8</a></li>
+					<li><a href="#"><img src="/001.jpg"></img>comic 9</a></li>
 				</ul>
 				<ul className="pages">
 					<li><a href="#">&lt;</a></li>
