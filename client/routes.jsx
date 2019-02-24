@@ -13,7 +13,7 @@ FlowRouter.route('/', {
 	name: 'Home',
 	action(params, queryParams){
 		mount( App, {
-			content: <Home />
+			content: <Comic />
 		})
 	}
 });

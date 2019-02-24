@@ -1,0 +1,65 @@
+.comic
+{
+	margin: 10px;
+
+	.thumb
+	{
+		width: 300px;
+		display: inline-block;
+	}
+
+	.info
+	{
+		display: inline-block;
+		vertical-align: top;
+
+		ul
+		{
+			list-style: none;
+
+			li
+			{
+				padding: 10px;
+
+				b
+				{
+					width: 16em;
+				}
+
+				span
+				{
+
+				}
+			}
+		}        
+	}
+
+	.chapters_holder
+	{
+		display: block;
+		width: 100%;
+		border: 1px solid white;
+		width: 100%;
+
+		ul
+		{
+			list-style: none;
+			li
+			{
+				a
+				{
+					b
+					{
+						width: 16em;
+
+					}
+
+					span
+					{
+
+					}
+				}
+			}
+		}
+	}
+}

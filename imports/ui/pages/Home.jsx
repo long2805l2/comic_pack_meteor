@@ -17,7 +17,7 @@ export default class Home extends React.Component
 		return (
 			<div className="home">
 				<ul className="comics">
-					<li><a className="add_comic" href="./comic/add">add comic</a></li>
+					<li><a href="./comic/add"><span className="add_comic">+</span>add comic</a></li>
 					<li><a href="#"><img src="/001.jpg"></img>comic 1</a></li>
 					<li><a href="#"><img src="/001.jpg"></img>comic 2</a></li>
 					<li><a href="#"><img src="/001.jpg"></img>comic 3</a></li>

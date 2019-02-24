@@ -7,7 +7,7 @@
 		list-style: none;
 		
 		display: grid;
-		grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+		grid-template-columns: repeat(auto-fill, minmax(297px, 1fr));
 		grid-gap: 0.25em;
 
 		li
@@ -18,7 +18,8 @@
 		
 			img
 			{
-				width: 100%;
+				width: 297px;
+				height: 421px;
 			}
 			
 			a
@@ -30,12 +31,9 @@
 
 			.add_comic
 			{
-				margin: 0;
-				position: relative;
-				top: 50%;
-				left: 50%;
-				-ms-transform: translate(-50%, -50%);
-				transform: translate(-50%, -50%);
+				width: 297px;
+				height: 421px;
+				display: inline-block;
 			}
 		}
 	}
