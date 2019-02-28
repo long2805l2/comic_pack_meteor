@@ -4,8 +4,16 @@
 
 	.thumb
 	{
-		width: 300px;
 		display: inline-block;
+		margin-right: 10px;
+
+		img
+		{
+			width: 297px;
+			height: 421px;
+			object-fit: cover;
+			object-position: 0% 0%;
+		}
 	}
 
 	.info
@@ -19,11 +27,11 @@
 
 			li
 			{
-				padding: 10px;
-
+				margin-bottom: 10px;
 				b
 				{
-					width: 16em;
+					display: inline-block;
+					margin-right: 10px;
 				}
 
 				span
@@ -38,28 +46,41 @@
 	{
 		display: block;
 		width: 100%;
-		border: 1px solid white;
-		width: 100%;
 
-		ul
+		display: grid;
+		grid-template-columns: max-content max-content auto max-content;
+
+		*
 		{
-			list-style: none;
-			li
-			{
-				a
-				{
-					b
-					{
-						width: 16em;
+			color: #C0C0C0;
+		}
 
-					}
+		.header
+		{
+			background-color: #444444;
+		}
+			
+		.chapter_id
+		{
+			grid-column: 2 / 2;
+			padding: 10px;
+		}
 
-					span
-					{
+		.chapter_name
+		{
+			grid-column: 3 / 3;
+			padding: 10px;
+		}
 
-					}
-				}
-			}
+		a.chapter_name:hover
+		{
+			color: white;
+		}
+
+		.chapter_update
+		{
+			grid-column: 4 / 4;
+			padding: 10px;
 		}
 	}
 }
