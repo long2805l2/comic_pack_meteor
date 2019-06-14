@@ -11,18 +11,44 @@ export default class Comic extends React.Component
 	componentDidMount()
 	{
 	}
-	
+	/**
+	 home => show newest list comic
+	 |-choose	=>	comic => show info and list chapter
+					|-edit info			=>	comic add - edit mode
+					|-choose chapter	=>	chapter viewer
+					|-choose tag		=>	home - search by tag
+					
+	 |-search	=> update list comic
+	 |-add new	=> comic add
+
+	 */
 	render()
 	{
 		return (
 			<div className="comic">
-				<div className="thumb"><img src="/000.jpg"></img></div>
-				<div className="info">
-					<ul>
-						<li><b>Name</b><span>Comic Name</span></li>
-						<li><b>Name</b><span>Comic Name</span></li>
-						<li><b>Name</b><span>Comic Name</span></li>
-					</ul>
+				<div className="comic_profile">
+					<div className="comic_thumb"><img src="/000.jpg"></img></div>
+					<div className="comic_detail">
+						<div className="comic_property">
+							<b>Genres</b>
+							<span className="tags">
+								<a className="tag" href="#">Action</a>
+								<a className="tag" href="#">Adventure</a>
+								<a className="tag" href="#">Superhero</a>
+							</span>
+						</div>
+						<div className="comic_property"><b>Publisher</b><span><a className="tag" href="#">DC Comics</a></span></div>
+						<div className="comic_property"><b>Writer</b><span><a className="tag" href="#">Benjamin Percy</a></span></div>
+						<div className="comic_property"><b>Artist</b><span><a className="tag" href="#">Jonboy Meyers</a></span></div>
+						<div className="comic_property"><b>Publication</b><p>26 October 2016</p></div>
+						<div className="comic_property"><b>Status</b><span><a className="tag" href="#">Ongoing</a></span></div>
+						<div className="comic_property">
+							<b>Summary</b>
+							<p>
+								“Damian Knows Best” part one! Now that Damian has “summoned” the Teen Titans, the tyrannical teen reveals his master plan! But a great evil from Damian’s past is lurking around the corner, ready to strike at the team’s newest leader and destroy the new Teen Titans before they even begin!
+							</p>
+						</div>
+					</div>
 				</div>
 				<div className="chapters_holder">
 					<span className="chapter_id header">Chapter</span><span className="chapter_name header">Name</span><span className="chapter_update header">Update</span>
