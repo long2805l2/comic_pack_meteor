@@ -13,7 +13,7 @@ FlowRouter.route('/', {
 	name: 'Home',
 	action(params, queryParams){
 		mount( App, {
-			content: <Comic />
+			content: <Home />
 		})
 	}
 });
@@ -37,7 +37,17 @@ FlowRouter.route('/comic/:comic_id', {
 	}
 });
 
-FlowRouter.route('/comic/:comic_id/:comic_chapter_id', {
+FlowRouter.route('/comic/:comic_id/add', {
+	name: 'comic.add',
+	action(params, queryParams){
+		console.log("comic.add", params, queryParams);
+		mount( App, {
+			content: <Uploader />
+		})
+	}
+});
+
+FlowRouter.route('/comic/:comic_id/chapter/:comic_chapter_id', {
 	name: 'comic.viewer',
 	action(params, queryParams){
 		console.log("comic.viewer", params, queryParams);
