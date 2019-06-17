@@ -52,7 +52,7 @@ FlowRouter.route('/comic/:comic_id/chapter/:comic_chapter_id', {
 	action(params, queryParams){
 		console.log("comic.viewer", params, queryParams);
 		mount( App, {
-			content: <Viewer />
+			content: <Viewer comic={params.comic_id} chapter={params.comic_chapter_id} />
 		})
 	}
 });

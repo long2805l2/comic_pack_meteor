@@ -6,13 +6,15 @@ export default class Viewer extends React.Component
 	constructor(props)
 	{
 		super(props);
+		console.log ("Viewer", props);
+		this.comic_name = props.comic;//"Hourou Musuko"
+		this.comic_chapter = props.chapter;//1
+		this.comic_chapter_name = "I Am a Girl";
 	}
 
 	componentDidMount()
 	{
-		let comic_name = "Hourou Musuko";
-		let comic_chapter = 1;
-		Meteor.call('comics.load', comic_name, comic_chapter,
+		Meteor.call('comics.load', this.comic_name, this.comic_chapter,
 		(error, result) =>
 		{
 			if (error)
@@ -46,7 +48,7 @@ export default class Viewer extends React.Component
 	render() {
 		return (
 			<div className="viewer">
-				<h1 className="title">I Am a Girl</h1>
+				<h1 className="title">{this.comic_chapter_name}</h1>
 				<ul className="gallery" id="gallery">
 						{/* <li><img src="/000.jpg"></img></li>
 						<li><img src="/001.jpg"></img></li>
