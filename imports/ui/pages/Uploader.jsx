@@ -6,6 +6,7 @@ export default class Uploader extends React.Component
 	constructor(props)
 	{
 		super(props);
+		this.comic_name = props.comic;//"Hourou Musuko"
 	}
 
 	componentDidMount()
@@ -104,8 +105,8 @@ export default class Uploader extends React.Component
 
 	onSubmit (e)
 	{
-		const comic_name = ReactDOM.findDOMNode(this.refs.comic_name).value.trim();
-		const comic_chapter = ReactDOM.findDOMNode(this.refs.comic_chapter).value.trim();
+		const chapter_name = ReactDOM.findDOMNode(this.refs.chapter_name).value.trim();
+		const chapter_id = ReactDOM.findDOMNode(this.refs.chapter_id).value.trim();
 
 		this.listFiles.sort ((a, b) =>
 		{
@@ -113,7 +114,7 @@ export default class Uploader extends React.Component
 			if (a.name < b.name)	return -1;
 			return 0;
 		})
-		Meteor.call('comics.save', comic_name, comic_chapter, this.listFiles);
+		Meteor.call('comics.save', this.comic_name, chapter_name, chapter_id, this.listFiles);
 	}
 	
 	render() {
@@ -121,12 +122,12 @@ export default class Uploader extends React.Component
 			<div id="uploader" className="uploader">
 				<form className="form">
 					<div className="property">
-						<label htmlFor="comic_name">Comic Name</label>
-						<input type="text" id="comic_name" ref="comic_name" placeholder="type comic name"/>
+						<label htmlFor="chapter_name">Chapter Name</label>
+						<input type="text" id="chapter_name" ref="chapter_name" placeholder="type comic name"/>
 					</div>
 					<div className="property">
-						<label htmlFor="comic_chapter">Chapter</label>
-						<input type="number" id="comic_chapter" ref="comic_chapter" placeholder="1"/>
+						<label htmlFor="chapter_id">Chapter Id</label>
+						<input type="number" id="chapter_id" ref="chapter_id" placeholder="1"/>
 					</div>
 					<div className="property">
 						<label>Images</label>

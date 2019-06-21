@@ -9,7 +9,7 @@ export default class Viewer extends React.Component
 		console.log ("Viewer", props);
 		this.comic_name = props.comic;//"Hourou Musuko"
 		this.comic_chapter = props.chapter;//1
-		this.comic_chapter_name = "I Am a Girl";
+		this.comic_chapter_name = "on loading ...";
 	}
 
 	componentDidMount()
@@ -17,6 +17,8 @@ export default class Viewer extends React.Component
 		Meteor.call('comics.load', this.comic_name, this.comic_chapter,
 		(error, result) =>
 		{
+			this.comic_chapter_name = "";
+
 			if (error)
 			{
 				console.log ("error", error);
@@ -25,12 +27,16 @@ export default class Viewer extends React.Component
 			
 			if (!result)
 				return;
+
+			this.comic_chapter_name = result.name;
+			let chapter_name = document.getElementById("chapter_name");
+			chapter_name.innerText = this.comic_chapter_name;
 			
 			this.listElements = document.getElementById("gallery");
-
-			for (let i in result)
+			let images = result.images;
+			for (let i in images)
 			{
-				let url = result [i];
+				let url = images [i];
 				let li = document.createElement ("li");
 				let img = document.createElement ("img");
 				img.src = url;
@@ -48,7 +54,7 @@ export default class Viewer extends React.Component
 	render() {
 		return (
 			<div className="viewer">
-				<h1 className="title">{this.comic_chapter_name}</h1>
+				<h1 className="title" id="chapter_name">{this.comic_chapter_name}</h1>
 				<ul className="gallery" id="gallery">
 						{/* <li><img src="/000.jpg"></img></li>
 						<li><img src="/001.jpg"></img></li>

@@ -42,7 +42,7 @@ FlowRouter.route('/comic/:comic_id/add', {
 	action(params, queryParams){
 		console.log("comic.add", params, queryParams);
 		mount( App, {
-			content: <Uploader />
+			content: <Uploader comic={params.comic_id} />
 		})
 	}
 });

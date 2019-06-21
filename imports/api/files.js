@@ -32,35 +32,41 @@ const core = {
 		console.log ("comics.add", "completed");
 	},
 
-	async 'comics.save' (name, chapter, images)
+	async 'comics.save' (comic_name, chapter_name, chapter_id, images)
 	{
-		// console.log ("comics.save", name, chapter, images);
+		// console.log ("comics.save", comic_name, chapter_name, chapter_id, images);
 		
-		let comic_file_id = name;
+		let comic_file_id = comic_name;
 		let comic_file = core ["files.get"] (comic_file_id);
 		if (!comic_file)
 		{
-			console.log ("comics.save", "error", "cannot found " + name);
+			console.log ("comics.save", "error", "cannot found " + comic_name);
+			return;
 		}
 
-		let chapter_file_id = comic_file.chapters [chapter];
+		let chapter_file_id = comic_file.chapters [chapter_id];
 		let chapter_file = chapter_file_id ? core ["files.get"] (chapter_file_id) : undefined;
 		if (!chapter_file)
 		{
 			chapter_file = {
-				images: {}
+				name: chapter_name
+			,	images: {}
 			}
 
 			chapter_file_id = core ["files.add"] (chapter_file);
-			comic_file.chapters [chapter] = chapter_file_id;
+			comic_file.chapters [chapter_id] = chapter_file_id;
 			
 			// console.log ("comics.save", "create chapter_file", chapter_file_id);
 		}
+
+		chapter_file.name = chapter_name;
 
 		for (let i in images)
 		{
 			let image = images [i];
 			let url = image.url;
+			
+			console.log ("comics.save", "image", i, url);
 
 			let image_file_id = chapter_file.images [i];
 			let image_file = {
@@ -90,11 +96,11 @@ const core = {
 		console.log ("comics.save", "completed");
 	},
 
-	async 'comics.load' (name, chapter)
+	async 'comics.load' (comic_name, chapter_id)
 	{
-		console.log ("comics.load ", name, chapter);
+		console.log ("comics.load ", comic_name, chapter_id);
 
-		let comic_file_id = name;
+		let comic_file_id = comic_name;
 		let comic_file = core ["files.get"] (comic_file_id);
 		if (!comic_file)
 		{
@@ -102,7 +108,7 @@ const core = {
 			return undefined;
 		}
 
-		let chapter_file_id = comic_file.chapters [chapter];
+		let chapter_file_id = comic_file.chapters [chapter_id];
 		if (!chapter_file_id)
 		{
 			console.log ("chapter_file_id " + chapter_file_id + " undefined");
@@ -115,12 +121,16 @@ const core = {
 			console.log ("chapter_file undefined");
 			return undefined;
 		}
+		
+		let name = chapter_file.name;
 
 		let images = {};
 		for (let i in chapter_file.images)
 		{
 			let image_file_id = chapter_file.images [i];
 			let image_file = core ["files.get"] (image_file_id);
+			
+			// console.log ("comics.load", "image", image_file_id, image_file);
 			if (!image_file)
 				continue;
 
@@ -128,7 +138,7 @@ const core = {
 		}
 
 		console.log ("comics.load ", "completed");
-		return images;
+		return {name, images};
 	},
 
 	'files.add'(object)
